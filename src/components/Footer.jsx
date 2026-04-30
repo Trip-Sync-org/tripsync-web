@@ -12,7 +12,7 @@ export default function Footer() {
         
         {/* Social Links */}
         <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-start md:items-center border-b border-white/5 pb-6 mb-6 md:pb-12 md:mb-12 gap-y-6 gap-x-4 md:gap-8">
-          <a href="#" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-[#4FA88A] transition-all duration-300 group">
+          <a href="https://github.com/Trip-Sync-org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-[#4FA88A] transition-all duration-300 group">
             <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-[#4FA88A]/20 group-hover:border-[#4FA88A]/50 group-hover:shadow-[0_0_20px_rgba(79,168,138,0.2)] transition-all duration-300">
                <Github className="w-4 h-4 md:w-5 md:h-5" />
             </div>
