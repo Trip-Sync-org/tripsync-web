@@ -36,22 +36,20 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[100] bg-[#0D1B17]/70 backdrop-blur-xl border-b border-white/5 transition-all duration-300 pointer-events-auto">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-[#0A0A0A]/70 backdrop-blur-xl border-b border-white/5 transition-all duration-300 pointer-events-auto">
       <div className="w-full px-4 md:px-12 h-20 md:h-24 flex items-center justify-between">
         
         {/* Logo */}
-        <div className="w-[100px] md:w-[120px] shrink-0 cursor-pointer hover:opacity-80 transition-opacity flex items-center justify-center" onClick={() => handleNavClick('hero')}>
-          <div className="scale-[0.35] md:scale-[0.4] origin-center">
-            <Logo animate={false} />
-          </div>
+        <div className="shrink-0 cursor-pointer hover:opacity-80 transition-opacity flex items-center" onClick={() => handleNavClick('hero')}>
+          <Logo layout="horizontal" />
         </div>
 
         {/* Links (Desktop) */}
         <div className="hidden md:flex items-center gap-8 bg-black/20 rounded-full px-8 py-3 border border-white/5">
-          <button onClick={() => handleNavClick('offerings')} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">Features</button>
-          <Link to="/tech" className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">Tech</Link>
-          <button onClick={() => window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">App</button>
-          <button onClick={() => handleNavClick('whoweare')} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">About</button>
+          <button onClick={() => handleNavClick('offerings')} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Features</button>
+          <Link to="/tech" className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Tech</Link>
+          <button onClick={() => window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">App</button>
+          <button onClick={() => handleNavClick('whoweare')} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">About</button>
         </div>
 
         {/* Action Button & Mobile Toggle */}
@@ -60,8 +58,8 @@ export default function Navbar() {
             onClick={() => window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"} 
             className={`whitespace-nowrap border px-5 py-2.5 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold tracking-wide transition-all duration-500 ${
               isBtnHighlight 
-                ? 'bg-[#4FA88A] text-[#0D1B17] border-[#4FA88A] scale-105 shadow-[0_0_30px_rgba(79,168,138,0.5)]' 
-                : 'bg-[#4FA88A]/10 text-[#4FA88A] border-[#4FA88A]/30 hover:bg-[#4FA88A] hover:text-[#0D1B17] hover:scale-105 hover:shadow-[0_0_30px_rgba(79,168,138,0.3)] shadow-[0_0_15px_rgba(79,168,138,0.1)]'
+                ? 'bg-white text-black border-white scale-105 shadow-[0_0_35px_rgba(255,255,255,0.4)]' 
+                : 'bg-white/10 text-white border-white/20 hover:bg-white hover:text-black hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] shadow-[0_0_15px_rgba(255,255,255,0.05)]'
             }`}
           >
             Download App
@@ -84,13 +82,13 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0D1B17]/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
+            className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
           >
             <div className="flex flex-col px-8 py-6 gap-6">
-              <button onClick={() => { handleNavClick('offerings'); setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">Features</button>
-              <Link to="/tech" onClick={() => setIsMobileMenuOpen(false)} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">Tech</Link>
-              <button onClick={() => { window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"; setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">App</button>
-              <button onClick={() => { handleNavClick('whoweare'); setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-[#4FA88A] transition-colors">About</button>
+              <button onClick={() => { handleNavClick('offerings'); setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Features</button>
+              <Link to="/tech" onClick={() => setIsMobileMenuOpen(false)} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Tech</Link>
+              <button onClick={() => { window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"; setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">App</button>
+              <button onClick={() => { handleNavClick('whoweare'); setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">About</button>
             </div>
           </motion.div>
         )}

@@ -68,14 +68,14 @@ export default function Stats() {
         className="text-center mb-16 relative z-10"
       >
         <h2 className="text-5xl md:text-7xl font-display font-black text-white tracking-tight mb-6">
-          Global <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FA88A] to-emerald-400">Impact</span>
+          Global <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">Impact</span>
         </h2>
         <div className="flex justify-center gap-12 text-center">
           <div>
             <div className="text-3xl md:text-5xl font-display font-bold text-white mb-2">
                <Counter end={500} suffix="+" />
             </div>
-            <div className="text-xs font-ui text-[#4FA88A] uppercase tracking-widest flex items-center gap-2 justify-center">
+            <div className="text-xs font-ui text-white/60 uppercase tracking-widest flex items-center gap-2 justify-center">
               <Globe className="w-3 h-3" /> Successful Trips
             </div>
           </div>
@@ -83,8 +83,8 @@ export default function Stats() {
             <div className="text-3xl md:text-5xl font-display font-bold text-white mb-2">
                <Counter end={10} suffix="K+" />
             </div>
-            <div className="text-xs font-ui text-[#4FA88A] uppercase tracking-widest flex items-center gap-2 justify-center">
-              <Activity className="w-3 h-3" /> Miles Logged
+            <div className="text-xs font-ui text-white/60 uppercase tracking-widest flex items-center gap-2 justify-center">
+               <Activity className="w-3 h-3" /> Miles Logged
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function Stats() {
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           onMouseMove={handleMouse}
           onMouseLeave={handleMouseLeave}
-          className="relative w-full aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#111915] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] group cursor-crosshair"
+          className="relative w-full aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#121212] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] group cursor-crosshair"
         >
           {/* Glassmorphic Top Bar */}
           <div className="absolute top-0 left-0 right-0 h-12 bg-black/40 backdrop-blur-md border-b border-white/5 flex items-center px-6 gap-2 z-20" style={{ transform: "translateZ(30px)" }}>
@@ -113,12 +113,12 @@ export default function Stats() {
           />
           
           {/* Grid Overlay */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjNDRkMTk4IiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] mix-blend-screen" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] mix-blend-screen" />
           
           {/* Play Button */}
           <div className="absolute inset-0 flex items-center justify-center z-20" style={{ transform: "translateZ(50px)" }}>
-             <div className="w-24 h-24 rounded-full bg-[#4FA88A]/20 border border-[#4FA88A]/50 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:bg-[#4FA88A]/40 shadow-[0_0_30px_rgba(79,168,138,0.3)] relative">
-               <div className="absolute inset-0 rounded-full bg-[#4FA88A] animate-ping opacity-20" />
+             <div className="w-24 h-24 rounded-full bg-white/10 border border-white/30 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:bg-white/20 shadow-[0_0_30px_rgba(255,255,255,0.08)] relative">
+               <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-20" />
                <Play className="w-10 h-10 text-white ml-2" fill="currentColor" />
              </div>
           </div>

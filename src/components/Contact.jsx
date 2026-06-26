@@ -55,15 +55,15 @@ export default function Contact() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="relative w-full max-w-4xl bg-[#0a0f0d]/90 backdrop-blur-2xl border border-[#4FA88A]/20 rounded-[2rem] p-1 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden"
+        className="relative w-full max-w-4xl bg-[#121212]/90 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-1 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden"
       >
-        <div className="flex flex-col md:flex-row w-full bg-[#0D1B17] rounded-[1.8rem] overflow-hidden">
+        <div className="flex flex-col md:flex-row w-full bg-[#121212] rounded-[1.8rem] overflow-hidden">
           
           {/* Left Side: Terminal Form */}
           <div className="w-full md:w-3/5 p-4 md:p-14 border-b md:border-b-0 md:border-r border-white/5">
             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-10">
-               <Terminal className="w-4 h-4 md:w-5 md:h-5 text-[#4FA88A]" />
-               <span className="font-ui text-[10px] md:text-xs text-[#4FA88A] tracking-[0.2em] uppercase font-bold">Tactical Support Terminal</span>
+               <Terminal className="w-4 h-4 md:w-5 md:h-5 text-white/80" />
+               <span className="font-ui text-[10px] md:text-xs text-white/80 tracking-[0.2em] uppercase font-bold">Tactical Support Terminal</span>
             </div>
 
             <h2 className="text-xl md:text-3xl font-display font-bold text-white mb-1 md:mb-2">Establish Link</h2>
@@ -76,7 +76,7 @@ export default function Contact() {
                 <input 
                   type="text" 
                   required
-                  className="w-full bg-black/40 border border-white/10 rounded-xl px-3 md:px-5 py-2 md:py-4 text-xs md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:border-[#4FA88A]/50 focus:bg-black/60 font-ui transition-all"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-3 md:px-5 py-2 md:py-4 text-xs md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:border-white/50 focus:bg-black/60 font-ui transition-all"
                   placeholder="Callsign / Name"
                 />
               </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                 <input 
                   type="email" 
                   required
-                  className="w-full bg-black/40 border border-white/10 rounded-xl px-3 md:px-5 py-2 md:py-4 text-xs md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:border-[#4FA88A]/50 focus:bg-black/60 font-ui transition-all"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-3 md:px-5 py-2 md:py-4 text-xs md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:border-white/50 focus:bg-black/60 font-ui transition-all"
                   placeholder="Comms Frequency (Email)"
                 />
               </div>
@@ -93,7 +93,7 @@ export default function Contact() {
                   required
                   placeholder="Mission Details..." 
                   rows={2}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl px-3 md:px-5 py-2 md:py-4 text-xs md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:border-[#4FA88A]/50 focus:bg-black/60 font-ui transition-all resize-none min-h-[50px] md:min-h-[80px]"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-3 md:px-5 py-2 md:py-4 text-xs md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:border-white/50 focus:bg-black/60 font-ui transition-all resize-none min-h-[50px] md:min-h-[80px]"
                 />
               </div>
               
@@ -102,7 +102,7 @@ export default function Contact() {
                   type="submit" 
                   disabled={formState !== "idle"}
                   className={`relative w-full overflow-hidden px-6 py-2.5 md:px-12 md:py-4 rounded-xl font-ui text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300
-                    ${formState === "idle" ? 'bg-[#4FA88A] text-[#0D1B17] hover:bg-emerald-400 hover:scale-[1.02] shadow-[0_0_20px_rgba(79,168,138,0.3)]' : ''}
+                    ${formState === "idle" ? 'bg-white text-black hover:bg-neutral-200 hover:scale-[1.02] shadow-[0_0_20px_rgba(255,255,255,0.15)]' : ''}
                     ${formState === "loading" ? 'bg-gray-800 text-gray-400 cursor-not-allowed' : ''}
                     ${formState === "success" ? 'bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)]' : ''}
                   `}
@@ -130,10 +130,10 @@ export default function Contact() {
           </div>
 
           {/* Right Side: Terminal Output / Metrics */}
-          <div className="w-full md:w-2/5 p-4 md:p-10 bg-black/20 flex flex-col font-mono text-[8px] md:text-[10px] tracking-wider text-[#4FA88A]/70 uppercase">
-             <div className="flex items-center justify-between mb-4 md:mb-8 pb-2 md:pb-4 border-b border-[#4FA88A]/10">
+          <div className="w-full md:w-2/5 p-4 md:p-10 bg-black/20 flex flex-col font-mono text-[8px] md:text-[10px] tracking-wider text-white/60 uppercase">
+             <div className="flex items-center justify-between mb-4 md:mb-8 pb-2 md:pb-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                   <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#4FA88A] animate-pulse" />
+                   <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_#ffffff]" />
                    <span>System Status: Optimal</span>
                 </div>
                 <div className="flex gap-4">
@@ -153,7 +153,7 @@ export default function Contact() {
                 <div ref={logEndRef} />
              </div>
 
-             <div className="mt-auto space-y-4 pt-4 border-t border-[#4FA88A]/10">
+             <div className="mt-auto space-y-4 pt-4 border-t border-white/10">
                 <div>
                    <div className="flex justify-between mb-1">
                       <span>Signal Strength</span>
@@ -163,7 +163,7 @@ export default function Contact() {
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: "98.2%" }}
-                        className="h-full bg-[#4FA88A]" 
+                        className="h-full bg-white" 
                       />
                    </div>
                 </div>
@@ -176,7 +176,7 @@ export default function Contact() {
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: "100%" }}
-                        className="h-full bg-[#4FA88A]" 
+                        className="h-full bg-white" 
                       />
                    </div>
                 </div>

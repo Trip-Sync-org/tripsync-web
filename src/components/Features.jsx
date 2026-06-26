@@ -61,11 +61,11 @@ export default function Features() {
               <h2 className="text-4xl md:text-[3.5rem] leading-tight font-display font-bold mb-4 text-white">
                 Group rides shouldn't <br />feel like herding cats.
               </h2>
-              <p className="text-lg text-gray-400 font-ui mb-10 max-w-xl">
+              <p className="text-lg text-white/60 font-ui mb-10 max-w-xl">
                 Click any common problem below to see how TripSync solves it.
               </p>
             </motion.div>
-
+ 
             <div className="grid grid-cols-2 gap-2 md:gap-4">
               {problems.map((p, i) => {
                 const isActive = activeCard === i;
@@ -79,7 +79,7 @@ export default function Features() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     onClick={() => setActiveCard(isActive ? null : i)}
                     className={`relative overflow-hidden cursor-pointer p-4 md:p-6 rounded-2xl transition-all duration-500 hover:-translate-y-1 group 
-                      ${isActive ? 'bg-[#4FA88A] shadow-[0_10px_40px_rgba(79,168,138,0.3)]' : 'bg-[#111915] border border-[#4FA88A]/10 hover:border-[#4FA88A]/40 shadow-sm'}
+                      ${isActive ? 'bg-white/10 text-white shadow-[0_10px_30px_rgba(255,255,255,0.02)] border border-white/20' : 'bg-white/5 border border-white/5 hover:border-white/15 shadow-sm'}
                     `}
                   >
                     <AnimatePresence mode="wait">
@@ -91,9 +91,9 @@ export default function Features() {
                           exit={{ opacity: 0 }}
                           className="relative"
                         >
-                          <p.icon className="w-5 h-5 md:w-6 md:h-6 text-[#4FA88A] mb-2 md:mb-4 group-hover:scale-110 transition-transform" />
+                          <p.icon className="w-5 h-5 md:w-6 md:h-6 text-white/70 mb-2 md:mb-4 group-hover:scale-110 transition-transform" />
                           <h3 className="font-display font-medium text-sm md:text-lg mb-1 md:mb-2 text-white leading-tight">{p.title}</h3>
-                          <p className="font-ui text-[10px] md:text-sm leading-tight md:leading-relaxed text-gray-400">{p.desc}</p>
+                          <p className="font-ui text-[10px] md:text-sm leading-tight md:leading-relaxed text-white/60">{p.desc}</p>
                         </motion.div>
                       ) : (
                         <motion.div 
@@ -103,9 +103,9 @@ export default function Features() {
                           exit={{ opacity: 0 }}
                           className="relative"
                         >
-                          <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-[#0D1B17] mb-2 md:mb-4" />
-                          <h3 className="font-display font-semibold text-sm md:text-lg mb-1 md:mb-2 text-[#0D1B17] leading-tight">{p.solutionTitle}</h3>
-                          <p className="text-[#0D1B17]/80 font-ui text-[10px] md:text-sm leading-tight md:leading-relaxed">{p.solutionDesc}</p>
+                          <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-white mb-2 md:mb-4" />
+                          <h3 className="font-display font-semibold text-sm md:text-lg mb-1 md:mb-2 text-white leading-tight">{p.solutionTitle}</h3>
+                          <p className="text-white/90 font-ui text-[10px] md:text-sm leading-tight md:leading-relaxed">{p.solutionDesc}</p>
                         </motion.div>
                       )}
                     </AnimatePresence>

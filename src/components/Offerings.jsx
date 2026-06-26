@@ -68,7 +68,7 @@ export default function Offerings() {
 
           <div className="relative w-full flex flex-col gap-1 md:gap-0 mt-2 md:mt-0">
             {/* The Central Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-[#4FA88A]/20 pointer-events-none" />
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-white/10 pointer-events-none" />
 
             {steps.map((step, i) => {
               const isActive = activeIndex === i;
@@ -85,30 +85,30 @@ export default function Offerings() {
                 >
                   
                   {/* Timeline Node */}
-                  <div className="absolute left-6 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 bg-[#0D1B17] px-2 py-1 transition-colors duration-300">
+                  <div className="absolute left-6 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 bg-[#0A0A0A] px-2 py-1 transition-colors duration-300">
                      {step.align === "right" ? (
                        <>
-                         <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg border border-white/5 transition-all duration-500 ${isActive ? 'bg-[#4FA88A] scale-110' : 'bg-[#1f2924] group-hover:bg-[#2a3632]'}`}>
-                           <step.icon className={`w-4 h-4 md:w-5 md:h-5 transition-colors duration-500 ${isActive ? 'text-[#0D1B17]' : 'text-gray-400 group-hover:text-gray-200'}`} />
+                         <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg border border-white/5 transition-all duration-500 ${isActive ? 'bg-white scale-110' : 'bg-white/5 group-hover:bg-white/10'}`}>
+                           <step.icon className={`w-4 h-4 md:w-5 md:h-5 transition-colors duration-500 ${isActive ? 'text-black' : 'text-gray-400 group-hover:text-gray-200'}`} />
                          </div>
-                         <div className={`font-ui font-bold text-xs transition-colors duration-500 ${isActive ? 'text-[#4FA88A]' : 'text-gray-500'}`}>
+                         <div className={`font-ui font-bold text-xs transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-500'}`}>
                            {step.num}
                          </div>
                        </>
                      ) : (
                        <>
                          <div className="hidden md:block">
-                           <div className={`font-ui font-bold text-xs transition-colors duration-500 ${isActive ? 'text-[#4FA88A]' : 'text-gray-500'}`}>
+                           <div className={`font-ui font-bold text-xs transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-500'}`}>
                              {step.num}
                            </div>
                          </div>
                          
-                         <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg border border-white/5 transition-all duration-500 ${isActive ? 'bg-[#4FA88A] scale-110' : 'bg-[#1f2924] group-hover:bg-[#2a3632]'}`}>
-                           <step.icon className={`w-4 h-4 md:w-5 md:h-5 transition-colors duration-500 ${isActive ? 'text-[#0D1B17]' : 'text-gray-400 group-hover:text-gray-200'}`} />
+                         <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg border border-white/5 transition-all duration-500 ${isActive ? 'bg-white scale-110' : 'bg-white/5 group-hover:bg-white/10'}`}>
+                           <step.icon className={`w-4 h-4 md:w-5 md:h-5 transition-colors duration-500 ${isActive ? 'text-black' : 'text-gray-400 group-hover:text-gray-200'}`} />
                          </div>
 
                          <div className="md:hidden">
-                           <div className={`font-ui font-bold text-xs transition-colors duration-500 ${isActive ? 'text-[#4FA88A]' : 'text-gray-500'}`}>
+                           <div className={`font-ui font-bold text-xs transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-500'}`}>
                              {step.num}
                            </div>
                          </div>
@@ -123,7 +123,7 @@ export default function Offerings() {
                         <div className="hidden md:flex w-1/2 pr-12 justify-end">
                           <motion.div 
                             animate={{ opacity: isActive ? 1 : 0.4, x: isActive ? 0 : -10 }}
-                            className={`w-full max-w-[26rem] p-3 rounded-xl border transition-all duration-500 ${isActive ? 'bg-[#1A2421] border-[#4FA88A]/30 shadow-[0_0_30px_rgba(79,168,138,0.15)]' : 'bg-transparent border-transparent'} text-right`}
+                            className={`w-full max-w-[26rem] p-3 rounded-xl border transition-all duration-500 ${isActive ? 'bg-white/5 border-white/15 shadow-[0_0_30px_rgba(255,255,255,0.05)]' : 'bg-transparent border-transparent'} text-right`}
                           >
                             <h3 className={`font-display text-base md:text-lg font-semibold mb-1 transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-300'}`}>{step.title}</h3>
                             <p className="font-ui text-xs md:text-sm text-muted-foreground leading-snug">{step.desc}</p>
@@ -132,7 +132,7 @@ export default function Offerings() {
                         <div className="w-full md:hidden pl-16 py-2 flex justify-start">
                            <motion.div 
                              animate={{ opacity: isActive ? 1 : 0.4, x: isActive ? 0 : 10 }}
-                             className={`w-full p-3 rounded-xl border transition-all duration-500 ${isActive ? 'bg-[#1A2421] border-[#4FA88A]/30 shadow-[0_0_20px_rgba(79,168,138,0.15)]' : 'bg-transparent border-transparent'} text-left`}
+                             className={`w-full p-3 rounded-xl border transition-all duration-500 ${isActive ? 'bg-white/5 border-white/15 shadow-[0_0_20px_rgba(255,255,255,0.05)]' : 'bg-transparent border-transparent'} text-left`}
                            >
                             <h3 className={`font-display text-base font-semibold mb-1 transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-300'}`}>{step.title}</h3>
                             <p className="font-ui text-xs text-muted-foreground leading-snug">{step.desc}</p>
@@ -146,7 +146,7 @@ export default function Offerings() {
                         <div className="w-full md:w-1/2 pl-16 md:pl-12 py-2 md:py-0 flex justify-start">
                            <motion.div 
                              animate={{ opacity: isActive ? 1 : 0.4, x: isActive ? 0 : 10 }}
-                             className={`w-full md:max-w-[26rem] p-3 rounded-xl border transition-all duration-500 ${isActive ? 'bg-[#1A2421] border-[#4FA88A]/30 shadow-[0_0_20px_rgba(79,168,138,0.15)]' : 'bg-transparent border-transparent'} text-left`}
+                             className={`w-full md:max-w-[26rem] p-3 rounded-xl border transition-all duration-500 ${isActive ? 'bg-white/5 border-white/15 shadow-[0_0_20px_rgba(255,255,255,0.05)]' : 'bg-transparent border-transparent'} text-left`}
                            >
                             <h3 className={`font-display text-base md:text-lg font-semibold mb-1 transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-300'}`}>{step.title}</h3>
                             <p className="font-ui text-xs md:text-sm text-muted-foreground leading-snug">{step.desc}</p>

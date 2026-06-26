@@ -39,32 +39,32 @@ export default function Dashboard() {
              >
                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-3 md:mb-4 text-white leading-tight tracking-tight">
                   Everything You Need.<br/>
-                  <span className="text-[#4FA88A]">Right on Your Dash.</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-300 to-neutral-500 pb-1 inline-block">Right on Your Dash.</span>
                </h2>
-               <p className="text-sm md:text-base text-gray-400 font-ui max-w-lg leading-relaxed md:leading-normal">
+               <p className="text-sm md:text-base text-white/60 font-ui max-w-lg leading-relaxed md:leading-normal">
                   TripSync keeps the most critical data front and center. Monitor your convoy's speed, distance, and status without ever losing focus on the road.
                </p>
              </motion.div>
 
              {/* The Functional Widget Simulation */}
              <motion.div 
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8, delay: 0.2 }}
-               className="w-full max-w-md md:max-w-sm lg:max-w-md bg-[#111915]/80 border border-[#4FA88A]/20 rounded-3xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="w-full max-w-md md:max-w-sm lg:max-w-md bg-[#161616]/80 border border-white/10 rounded-3xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
              >
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center gap-3">
-                   <div className="w-10 h-10 rounded-full bg-[#4FA88A]/20 flex items-center justify-center">
-                     <Zap className="w-5 h-5 text-[#4FA88A]" />
+                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                     <Zap className="w-5 h-5 text-white" />
                    </div>
                    <div>
                      <h3 className="font-display font-semibold text-white">Live Convoy Status</h3>
                      <p className="text-xs text-gray-400 font-ui">Real-time sync active</p>
                    </div>
                  </div>
-                 <Signal className="w-5 h-5 text-[#4FA88A] animate-pulse" />
+                 <Signal className="w-5 h-5 text-white animate-pulse" />
                </div>
 
                <div className="flex flex-col gap-2 md:gap-2">
@@ -74,8 +74,8 @@ export default function Dashboard() {
                      <motion.div 
                        key={i} 
                        animate={{ 
-                         backgroundColor: isHighlight ? "rgba(26, 36, 33, 1)" : "rgba(26, 36, 33, 0)",
-                         borderColor: isHighlight ? "rgba(79, 168, 138, 0.4)" : "rgba(79, 168, 138, 0)",
+                         backgroundColor: isHighlight ? "rgba(255, 255, 255, 0.08)" : "rgba(255, 255, 255, 0)",
+                         borderColor: isHighlight ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0)",
                          scale: isHighlight ? 1.02 : 1,
                          opacity: isHighlight ? 1 : 0.6
                        }}
@@ -84,13 +84,13 @@ export default function Dashboard() {
                      >
                        <div className="flex items-center gap-4">
                          <div className="relative">
-                           <div className={`w-3 h-3 rounded-full ${isHighlight ? 'bg-[#4FA88A]' : 'bg-gray-600'}`}></div>
+                           <div className={`w-3 h-3 rounded-full ${isHighlight ? 'bg-white shadow-[0_0_8px_#ffffff]' : 'bg-gray-600'}`}></div>
                            {isHighlight && (
                              <motion.div 
                                initial={{ scale: 0, opacity: 0.5 }}
                                animate={{ scale: 2.5, opacity: 0 }}
                                transition={{ duration: 1.5, repeat: Infinity }}
-                               className="absolute inset-0 rounded-full bg-[#4FA88A]"
+                               className="absolute inset-0 rounded-full bg-white"
                              />
                            )}
                          </div>
@@ -106,7 +106,7 @@ export default function Dashboard() {
                        
                        <div className="flex items-center gap-6">
                          <div className="text-right">
-                           <div className={`font-ui font-bold transition-colors duration-500 ${isHighlight ? 'text-[#4FA88A]' : 'text-gray-500'}`}>{rider.speed}</div>
+                           <div className={`font-ui font-bold transition-colors duration-500 ${isHighlight ? 'text-white' : 'text-gray-500'}`}>{rider.speed}</div>
                          </div>
                          <div className="flex items-center gap-1 text-xs text-gray-500">
                            <Battery className="w-3 h-3" />

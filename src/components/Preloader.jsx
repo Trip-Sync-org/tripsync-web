@@ -30,7 +30,7 @@ export default function Preloader({ onComplete }) {
         filter: "blur(20px)",
         transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] } 
       }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0D1B17] text-[#4FA88A]"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0A0A0A] text-white"
     >
       <div className="flex flex-col items-center relative z-10">
         
@@ -42,7 +42,7 @@ export default function Preloader({ onComplete }) {
         {/* Speedometer/Progress bar feel */}
         <div className="w-64 md:w-96 h-[2px] bg-white/10 overflow-hidden relative">
           <motion.div 
-            className="absolute top-0 left-0 h-full bg-[#4FA88A] shadow-[0_0_10px_#4FA88A]"
+            className="absolute top-0 left-0 h-full bg-white shadow-[0_0_10px_#ffffff]"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -54,7 +54,7 @@ export default function Preloader({ onComplete }) {
       </div>
       
       {/* Background glow for the gaming feel */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#4FA88A]/10 via-transparent to-transparent opacity-50" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-50" />
     </motion.div>
   );
 }

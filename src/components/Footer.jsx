@@ -1,40 +1,33 @@
-import { ArrowUpRight, Github, Linkedin, Instagram, Twitter } from "lucide-react";
+import { ArrowUpRight, Linkedin, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="relative w-full bg-transparent border-t border-white/5 pt-16 md:pt-32 pb-6 md:pb-10 px-8 md:px-20 font-ui overflow-hidden">
       
       {/* Decorative background gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-[#4FA88A]/50 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#4FA88A]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-white/2 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
         
         {/* Social Links */}
-        <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-start md:items-center border-b border-white/5 pb-6 mb-6 md:pb-12 md:mb-12 gap-y-6 gap-x-4 md:gap-8">
-          <a href="https://github.com/Trip-Sync-org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-[#4FA88A] transition-all duration-300 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-[#4FA88A]/20 group-hover:border-[#4FA88A]/50 group-hover:shadow-[0_0_20px_rgba(79,168,138,0.2)] transition-all duration-300">
-               <Github className="w-4 h-4 md:w-5 md:h-5" />
-            </div>
-            <span className="tracking-widest uppercase text-xs font-bold">GitHub</span>
-            <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </a>
-          <a href="#" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-[#4FA88A] transition-all duration-300 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-[#4FA88A]/20 group-hover:border-[#4FA88A]/50 group-hover:shadow-[0_0_20px_rgba(79,168,138,0.2)] transition-all duration-300">
+        <div className="grid grid-cols-3 md:flex md:flex-row justify-between items-start md:items-center border-b border-white/5 pb-6 mb-6 md:pb-12 md:mb-12 gap-y-6 gap-x-4 md:gap-8">
+          <a href="https://www.linkedin.com/company/tripsynclive" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-white transition-all duration-300 group">
+            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-white/10 group-hover:border-white/30 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300">
                <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
             </div>
             <span className="tracking-widest uppercase text-xs font-bold">LinkedIn</span>
             <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
-          <a href="#" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-[#4FA88A] transition-all duration-300 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-[#4FA88A]/20 group-hover:border-[#4FA88A]/50 group-hover:shadow-[0_0_20px_rgba(79,168,138,0.2)] transition-all duration-300">
+          <a href="https://www.instagram.com/tripsync.live" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-white transition-all duration-300 group">
+            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-white/10 group-hover:border-white/30 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300">
                <Instagram className="w-4 h-4 md:w-5 md:h-5" />
             </div>
             <span className="tracking-widest uppercase text-xs font-bold">Instagram</span>
             <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
-          <a href="#" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-[#4FA88A] transition-all duration-300 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-[#4FA88A]/20 group-hover:border-[#4FA88A]/50 group-hover:shadow-[0_0_20px_rgba(79,168,138,0.2)] transition-all duration-300">
+          <a href="https://x.com/TripSynclive" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-white transition-all duration-300 group">
+            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-white/10 group-hover:border-white/30 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300">
                <Twitter className="w-4 h-4 md:w-5 md:h-5" />
             </div>
             <span className="tracking-widest uppercase text-xs font-bold">Twitter X</span>
