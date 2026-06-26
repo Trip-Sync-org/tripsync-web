@@ -1,4 +1,4 @@
-import { ArrowUpRight, Linkedin, Instagram, Twitter } from "lucide-react";
+import { ArrowUpRight, Linkedin, Instagram, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto relative z-10">
         
         {/* Social Links */}
-        <div className="grid grid-cols-3 md:flex md:flex-row justify-between items-start md:items-center border-b border-white/5 pb-6 mb-6 md:pb-12 md:mb-12 gap-y-6 gap-x-4 md:gap-8">
+        <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-start md:items-center border-b border-white/5 pb-6 mb-6 md:pb-12 md:mb-12 gap-y-6 gap-x-4 md:gap-8">
           <a href="https://www.linkedin.com/company/tripsynclive" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-white transition-all duration-300 group">
             <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-white/10 group-hover:border-white/30 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300">
                <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
@@ -31,6 +31,13 @@ export default function Footer() {
                <Twitter className="w-4 h-4 md:w-5 md:h-5" />
             </div>
             <span className="tracking-widest uppercase text-xs font-bold">Twitter X</span>
+            <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </a>
+          <a href="mailto:support@tripsync.live" className="flex items-center gap-2 md:gap-4 text-gray-400 hover:text-white transition-all duration-300 group">
+            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display font-medium text-white group-hover:bg-white/10 group-hover:border-white/30 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300">
+               <Mail className="w-4 h-4 md:w-5 md:h-5" />
+            </div>
+            <span className="tracking-widest uppercase text-xs font-bold">Email</span>
             <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
         </div>
