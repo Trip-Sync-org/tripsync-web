@@ -210,51 +210,20 @@ function ScreenStats() {
 }
 
 function PhoneScreen({ activeIndex }) {
-  if (CUSTOM_APP_IMAGE_URL) {
-    return (
-      <div style={{ width: 300, height: 620 }} className="bg-black rounded-[2.5rem] overflow-hidden border-8 border-black">
-         <img src={CUSTOM_APP_IMAGE_URL} alt="App Mockup" className="w-full h-full object-cover" />
-      </div>
-    );
-  }
+  const images = [
+    '/media__1783486356611.png',
+    '/media__1783486334047.png',
+    '/media__1783486330239.png',
+    '/media__1783486326978.png'
+  ];
 
   return (
-    <div style={{ width: 300, height: 620 }} className="bg-[#0A0A0A] rounded-[2.5rem] overflow-hidden flex flex-col pointer-events-none select-none border-8 border-black text-white relative shadow-2xl">
-      {/* Notch */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-50 flex items-center justify-center gap-2">
-        <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-        <div className="w-10 h-1.5 rounded-full bg-white/10" />
-      </div>
-
-      {/* Top Status Bar */}
-      <div className="absolute top-1 w-full px-5 flex justify-between items-center z-40 text-[10px] font-medium text-white/70">
-        <span>9:41</span>
-        <div className="flex gap-1 items-center">
-           <Zap className="w-3 h-3 text-white fill-white" />
-           <div className="w-4 h-2.5 border border-white/50 rounded-[2px] relative">
-             <div className="absolute inset-[1px] bg-white/80 rounded-[1px] w-[70%]" />
-           </div>
-        </div>
-      </div>
-
-      <div className="flex-1 relative overflow-hidden bg-gradient-to-b from-[#161616] to-[#0A0A0A] pt-10 pb-16">
-        <AnimatePresence mode="wait">
-          {activeIndex === 0 && <ScreenHome key="home" />}
-          {activeIndex === 1 && <ScreenMap key="map" />}
-          {activeIndex === 2 && <ScreenGroup key="group" />}
-          {activeIndex === 3 && <ScreenStats key="stats" />}
-        </AnimatePresence>
-      </div>
-
-      {/* App Bottom Nav */}
-      <div className="absolute bottom-0 w-full h-16 bg-[#0A0A0A]/90 backdrop-blur-md border-t border-white/5 flex items-center justify-around z-50 px-2 pb-2">
-         {[Compass, Navigation, Users, BarChart3].map((Icon, idx) => (
-           <div key={idx} className={`flex flex-col items-center gap-1 transition-colors duration-300 ${activeIndex === idx ? 'text-white' : 'text-white/30'}`}>
-             <Icon className={`w-5 h-5 ${activeIndex === idx ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]' : ''}`} />
-             <div className={`w-1 h-1 rounded-full transition-all duration-300 ${activeIndex === idx ? 'bg-white scale-100' : 'bg-transparent scale-0'}`} />
-           </div>
-         ))}
-      </div>
+    <div style={{ width: '300px', height: '620px', backgroundColor: '#000000', borderRadius: '2.5rem', overflow: 'hidden', border: '8px solid #000000', position: 'relative' }}>
+      <img 
+        src={images[activeIndex]} 
+        alt="App Screen" 
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none', userSelect: 'none' }}
+      />
     </div>
   );
 }
@@ -441,7 +410,16 @@ function Aurora({ scrollStateRef }) {
     <mesh position={[0, 30, -60]}>
       {/* A very long, wide curved plane in the sky */}
       <cylinderGeometry args={[80, 80, 30, 64, 1, true, -Math.PI/2, Math.PI]} />
-      <shaderMaterial ref={materialRef} args={[AuroraMaterial]} />
+      <shaderMaterial 
+        ref={materialRef} 
+        uniforms={AuroraMaterial.uniforms} 
+        vertexShader={AuroraMaterial.vertexShader} 
+        fragmentShader={AuroraMaterial.fragmentShader} 
+        transparent={true} 
+        blending={THREE.AdditiveBlending} 
+        depthWrite={false} 
+        side={THREE.DoubleSide} 
+      />
     </mesh>
   );
 }

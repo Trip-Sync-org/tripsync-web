@@ -48,14 +48,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8 bg-black/20 rounded-full px-8 py-3 border border-white/5">
           <button onClick={() => handleNavClick('offerings')} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Features</button>
           <Link to="/tech" className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Tech</Link>
-          <button onClick={() => window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">App</button>
+          <button onClick={() => window.location.href = "https://media.tripsync.live/app/tripsync-v1.0.1.apk"} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">App</button>
           <button onClick={() => handleNavClick('whoweare')} className="text-xs tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">About</button>
         </div>
 
         {/* Action Button & Mobile Toggle */}
         <div className="flex items-center gap-2 sm:gap-4">
           <button 
-            onClick={() => window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"} 
+            onClick={() => window.location.href = "https://media.tripsync.live/app/tripsync-v1.0.1.apk"} 
             className={`whitespace-nowrap border px-5 py-2.5 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold tracking-wide transition-all duration-500 ${
               isBtnHighlight 
                 ? 'bg-white text-black border-white scale-105 shadow-[0_0_35px_rgba(255,255,255,0.4)]' 
@@ -87,7 +87,7 @@ export default function Navbar() {
             <div className="flex flex-col px-8 py-6 gap-6">
               <button onClick={() => { handleNavClick('offerings'); setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Features</button>
               <Link to="/tech" onClick={() => setIsMobileMenuOpen(false)} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">Tech</Link>
-              <button onClick={() => { window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"; setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">App</button>
+              <button onClick={() => { window.location.href = "https://media.tripsync.live/app/tripsync-v1.0.1.apk"; setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">App</button>
               <button onClick={() => { handleNavClick('whoweare'); setIsMobileMenuOpen(false); }} className="text-left text-sm tracking-widest uppercase font-ui text-white/60 hover:text-white transition-colors">About</button>
             </div>
           </motion.div>

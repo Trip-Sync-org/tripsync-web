@@ -102,7 +102,7 @@ export default function Hero() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-start relative z-10"
           >
-            <button onClick={() => window.location.href = "https://expo.dev/artifacts/eas/hZbQUdZLVRoVLhjj7tnQnY.apk"} className="inline-flex items-center justify-center rounded-full text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-white/5 border border-white/10 text-white hover:bg-white/10 h-14 px-8 gap-3 hover:scale-105 active:scale-95 duration-300">
+            <button onClick={() => window.location.href = "https://media.tripsync.live/app/tripsync-v1.0.1.apk"} className="inline-flex items-center justify-center rounded-full text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-white/5 border border-white/10 text-white hover:bg-white/10 h-14 px-8 gap-3 hover:scale-105 active:scale-95 duration-300">
               <Play className="w-5 h-5 fill-current" />
               Google Play
             </button>
