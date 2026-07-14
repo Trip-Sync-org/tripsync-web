@@ -375,6 +375,12 @@ function PhoneModel({ thresholds, scrollStateRef }) {
     }
   });
 
+  // Hide the 3D phone mockup on mobile screens
+  const isMobile = viewport.width < 5;
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <group ref={group}>
       {/* Outer metallic frame */}
