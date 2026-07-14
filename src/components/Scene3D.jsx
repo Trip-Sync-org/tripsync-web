@@ -1,6 +1,6 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, RoundedBox, Html, ContactShadows, Stars } from "@react-three/drei";
-import { useRef, useState, useMemo, useEffect, useCallback } from "react";
+import { Environment, RoundedBox, Html, ContactShadows, Stars, useTexture } from "@react-three/drei";
+import { useRef, useState, useMemo, useEffect, useCallback, Suspense } from "react";
 import * as THREE from "three";
 import { Compass, Navigation, Users, BarChart3, MapPin, Zap, Bell, Search, Activity, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -209,23 +209,31 @@ function ScreenStats() {
   );
 }
 
-function PhoneScreen({ activeIndex }) {
-  const images = [
-    '/media__1783486356611.png',
-    '/media__1783486334047.png',
-    '/media__1783486330239.png',
-    '/media__1783486326978.png'
-  ];
+// Load all screen textures safely — no Suspense throw, no crash on error
+const SCREEN_IMAGES = [
+  '/media__1783486356611.png',
+  '/mockup_create.png',
+  '/mockup_comms.png',
+  '/mockup_telemetry.png'
+];
 
-  return (
-    <div style={{ width: '300px', height: '620px', backgroundColor: '#000000', borderRadius: '2.5rem', overflow: 'hidden', border: '8px solid #000000', position: 'relative' }}>
-      <img 
-        src={images[activeIndex]} 
-        alt="App Screen" 
-        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none', userSelect: 'none' }}
-      />
-    </div>
-  );
+// Preload to ensure they are available immediately
+useTexture.preload(SCREEN_IMAGES);
+
+function PhoneScreenMaterial({ activeIndex }) {
+  const textures = useTexture(SCREEN_IMAGES);
+  const tex = textures[activeIndex];
+  const { gl } = useThree();
+  
+  if (tex) {
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = gl.capabilities.getMaxAnisotropy();
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+  }
+
+  // alphaTest prevents the transparent corners of the mockup images from rendering as solid white blocks
+  return <meshBasicMaterial map={tex} color="#ffffff" toneMapped={false} alphaTest={0.5} />;
 }
 
 function PhoneModel({ thresholds, scrollStateRef }) {
@@ -233,13 +241,45 @@ function PhoneModel({ thresholds, scrollStateRef }) {
   const { viewport } = useThree();
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Rounded screen geometry matching the image aspect ratio exactly
+  const screenGeo = useMemo(() => {
+    // 458x1024 aspect ratio is 0.447
+    const W = 3.04;
+    const H = 6.8;
+    const r = 0.30; // corner radius matching bezel
+    const w = W / 2;
+    const h = H / 2;
+
+    const shape = new THREE.Shape();
+    shape.moveTo(-w + r, -h);
+    shape.lineTo(w - r, -h);
+    shape.quadraticCurveTo(w, -h, w, -h + r);
+    shape.lineTo(w, h - r);
+    shape.quadraticCurveTo(w, h, w - r, h);
+    shape.lineTo(-w + r, h);
+    shape.quadraticCurveTo(-w, h, -w, h - r);
+    shape.lineTo(-w, -h + r);
+
+    const geo = new THREE.ShapeGeometry(shape, 16);
+
+    // Remap UVs so texture fills the shape perfectly
+    const pos = geo.attributes.position;
+    const uvArr = new Float32Array(pos.count * 2);
+    for (let i = 0; i < pos.count; i++) {
+      uvArr[i * 2]     = (pos.getX(i) + w) / W;
+      uvArr[i * 2 + 1] = (pos.getY(i) + h) / H;
+    }
+    geo.setAttribute('uv', new THREE.BufferAttribute(uvArr, 2));
+    return geo;
+  }, []);
+
   useFrame((state, delta) => {
     const { progress } = scrollStateRef.current;
 
-    // Calculate active screen index
-    const newIdx = progress < thresholds.features ? 0 
-                 : progress < thresholds.offerings ? 1 
-                 : progress < thresholds.dashboard ? 2 
+    // Calculate active screen index - 5 screens spread across 4 sections
+    const newIdx = progress < thresholds.features ? 0
+                 : progress < thresholds.offerings ? 1
+                 : progress < thresholds.dashboard ? 2
                  : 3;
     if (newIdx !== activeIndex) {
       setActiveIndex(newIdx);
@@ -326,23 +366,30 @@ function PhoneModel({ thresholds, scrollStateRef }) {
       group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, targetRotX, 4, delta);
       group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, targetRotY, 4, delta);
       group.current.rotation.z = THREE.MathUtils.damp(group.current.rotation.z, targetRotZ, 4, delta);
+
+      // Scale down on mobile so phone fits narrow viewports
+      const targetScale = isMobile ? 0.72 : 1.0;
+      const cs = group.current.scale.x;
+      const ns = THREE.MathUtils.damp(cs, targetScale, 4, delta);
+      group.current.scale.set(ns, ns, ns);
     }
   });
 
   return (
     <group ref={group}>
-      <RoundedBox args={[3.3, 6.6, 0.4]} radius={0.4} smoothness={12}>
+      {/* Outer metallic frame */}
+      <RoundedBox args={[3.2, 6.96, 0.4]} radius={0.4} smoothness={12}>
         <meshStandardMaterial color="#1f1f1f" metalness={0.9} roughness={0.1} />
       </RoundedBox>
-      <RoundedBox args={[3.2, 6.5, 0.41]} radius={0.35} smoothness={12}>
+      {/* Inner black bezel */}
+      <RoundedBox args={[3.1, 6.86, 0.41]} radius={0.35} smoothness={12}>
         <meshStandardMaterial color="#000000" metalness={0.5} roughness={0.5} />
       </RoundedBox>
-      <mesh position={[0, 0, 0.21]}>
-        <planeGeometry args={[3.0, 6.2]} />
-        <meshBasicMaterial color="#000" opacity={0} transparent />
-        <Html transform position={[0, 0, 0.01]} scale={0.01} zIndexRange={[100, 0]} className="rounded-[2.5rem]">
-          <PhoneScreen activeIndex={activeIndex} />
-        </Html>
+      {/* Screen sits in front of the inner bezel (bezel front face is at z=0.205) */}
+      <mesh position={[0, 0, 0.22]} geometry={screenGeo}>
+        <Suspense fallback={<meshBasicMaterial color="#000000" />}>
+          <PhoneScreenMaterial activeIndex={activeIndex} />
+        </Suspense>
       </mesh>
     </group>
   );
@@ -767,7 +814,9 @@ export default function Scene3D() {
         <MovingRoad scrollStateRef={scrollStateRef} />
         <Mountains scrollStateRef={scrollStateRef} />
 
-        <PhoneModel thresholds={thresholds} scrollStateRef={scrollStateRef} />
+        <Suspense fallback={null}>
+          <PhoneModel thresholds={thresholds} scrollStateRef={scrollStateRef} />
+        </Suspense>
         <ScrollHandler thresholds={thresholds} containerRef={containerRef} scrollStateRef={scrollStateRef} />
         
         <ContactShadows position={[0, -3.4, 0]} opacity={0.8} scale={20} blur={2.5} far={10} color="#000000" />

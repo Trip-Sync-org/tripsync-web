@@ -4,32 +4,18 @@ import { Map, Mic, Zap, Users, ShieldAlert, Navigation, Compass, MapPin } from '
 
 const slides = [
   {
-    id: 'map',
-    title: 'Real-Time Convoy Map',
-    description: 'Never lose a rider again. See everyone’s exact location, speed, and heading on a shared tactical map. If someone falls behind, the system auto-reroutes them to catch up.',
-    icon: Map,
-    image: '/media__1783486334047.png'
-  },
-  {
-    id: 'comms',
-    title: 'Tactical Voice Channel',
-    description: 'Crystal clear, latency-free voice comms. No need to mess with radio frequencies. Just pair your helmet bluetooth and talk to your squad as if they are right next to you.',
-    icon: Mic,
-    image: '/media__1783486330239.png'
-  },
-  {
     id: 'telemetry',
     title: 'Live Telemetry Dash',
     description: 'Monitor your critical ride stats at a glance. Speed, distance, efficiency score, and weather alerts are all seamlessly integrated into a distraction-free dark interface.',
     icon: Zap,
-    image: '/media__1783486326978.png'
+    image: '/mockup_telemetry.png'
   },
   {
     id: 'create',
     title: 'Expedition Organizer',
     description: 'Plan and coordinate your route with ease. Set meetup points, define drop-offs, place community-saved attractions, and schedule trip checkpoints before hitting the road.',
     icon: MapPin,
-    image: '/media__1783486352077.png'
+    image: '/mockup_create.png'
   },
   {
     id: 'explore',
@@ -37,6 +23,13 @@ const slides = [
     description: 'Explore expeditions planned by other riders in the community. Join upcoming adventures, view routes, and discover the best riding spots in the region.',
     icon: Compass,
     image: '/media__1783486356611.png'
+  },
+  {
+    id: 'comms',
+    title: 'Tactical Voice Channel',
+    description: 'Crystal clear, latency-free voice comms. No need to mess with radio frequencies. Just pair your helmet bluetooth and talk to your squad as if they are right next to you.',
+    icon: Mic,
+    image: '/mockup_comms.png'
   }
 ];
 
@@ -46,10 +39,8 @@ function InteractivePhoneMockup({ src, alt }) {
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = (e.clientX - rect.left) / width - 0.5;
-    const mouseY = (e.clientY - rect.top) / height - 0.5;
+    const mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+    const mouseY = (e.clientY - rect.top) / rect.height - 0.5;
     x.set(mouseX);
     y.set(mouseY);
   };
@@ -60,60 +51,96 @@ function InteractivePhoneMockup({ src, alt }) {
   };
 
   const springConfig = { damping: 25, stiffness: 150 };
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [15, -15]), springConfig);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-15, 15]), springConfig);
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [12, -12]), springConfig);
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-12, 12]), springConfig);
   const sheenX = useSpring(useTransform(x, [-0.5, 0.5], [-200, 200]), springConfig);
 
   return (
-    <div 
-      className="w-full md:w-1/2 flex items-center justify-center relative perspective-[1000px]"
+    <div
+      className="w-full md:w-1/2 flex items-center justify-center relative"
+      style={{ perspective: '1200px' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <motion.div 
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative w-[245px] h-[580px] md:w-[278px] md:h-[660px] bg-black rounded-[3rem] border-[12px] border-[#171717] shadow-2xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),_0_0_40px_rgba(255,255,255,0.05)] ring-1 ring-white/10 cursor-pointer"
+      <motion.div
+        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+        className="relative cursor-pointer"
       >
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-[#171717] rounded-b-xl z-50 flex justify-center items-end pb-1 gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-          <div className="w-8 h-1.5 rounded-full bg-white/10" />
-        </div>
+        {/* Phone shell */}
+        <div
+          className="relative group"
+          style={{
+            width: '252px',
+            height: '545px',
+            borderRadius: '2.5rem',
+            boxShadow: '0 40px 80px -15px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.06)',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Screenshot */}
+          <img
+            src={src}
+            alt={alt}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              display: 'block',
+              userSelect: 'none',
+              pointerEvents: 'none',
+            }}
+          />
 
-        {/* Screen Content */}
-        <div className="w-full h-full relative bg-[#0A0A0A] overflow-hidden group">
-          <motion.div 
-            className="w-full h-full"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <img 
-              src={src} 
-              alt={alt} 
-              className="w-full h-full object-cover select-none pointer-events-none" 
-            />
-          </motion.div>
+          {/* Inset depth shadow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              boxShadow: 'inset 0 0 20px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.04)',
+              borderRadius: '2.5rem',
+            }}
+          />
 
-          {/* Sweeping Glass Sheen Reflection */}
-          <motion.div 
-            style={{ x: sheenX }}
-            className="absolute top-0 bottom-0 left-[-150%] w-[100%] bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay z-40 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          {/* Hover sheen */}
+          <motion.div
+            style={{ x: sheenX, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent)', transform: 'skewX(-20deg)', left: '-150%', width: '100%', mixBlendMode: 'overlay' }}
+            className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         </div>
+
+        {/* Side buttons */}
+        <div className="absolute bg-[#222] rounded-l-sm" style={{ right: '-9px', top: '76px', width: '3px', height: '32px' }} />
+        <div className="absolute bg-[#222] rounded-r-sm" style={{ left: '-9px', top: '60px', width: '3px', height: '20px' }} />
+        <div className="absolute bg-[#222] rounded-r-sm" style={{ left: '-9px', top: '94px', width: '3px', height: '48px' }} />
+
+        {/* Reflection */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            bottom: '-24px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '160px',
+            height: '16px',
+            background: 'rgba(255,255,255,0.04)',
+            filter: 'blur(12px)',
+            borderRadius: '50%',
+          }}
+        />
       </motion.div>
-      
-      {/* Decorative background circle with floating animation */}
-      <motion.div 
-        animate={{ 
-          y: [0, -10, 0],
-          scale: [1, 1.02, 1]
+
+      {/* Orbit ring */}
+      <motion.div
+        animate={{ y: [0, -10, 0], scale: [1, 1.02, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none"
+        style={{
+          width: '360px',
+          height: '360px',
+          border: '1px dashed rgba(255,255,255,0.08)',
+          borderRadius: '50%',
+          opacity: 0.3,
         }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-dashed border-white/10 rounded-full -z-10 shadow-[0_0_50px_rgba(255,255,255,0.03)] opacity-50 pointer-events-none" 
       />
     </div>
   );
