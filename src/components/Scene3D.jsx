@@ -8,14 +8,14 @@ import { motion, AnimatePresence } from "framer-motion";
 // ==========================================
 // CONFIGURATION
 // ==========================================
-const CUSTOM_APP_IMAGE_URL = null; 
+const CUSTOM_APP_IMAGE_URL = null;
 // ==========================================
 
 import { Mic, ShieldAlert, Battery, Signal } from "lucide-react";
 
 function ScreenHome() {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -32,12 +32,12 @@ function ScreenHome() {
           <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_#ffffff]" />
         </div>
       </div>
-      
+
       <div className="relative w-full h-40 rounded-2xl overflow-hidden mb-6 group">
         <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=400" alt="Mountain Expedition" className="w-full h-full object-cover opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
           <span className="bg-white text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider w-max mb-2">Active Mission</span>
-          <h3 className="font-bold text-white text-lg leading-tight">Northern Peaks<br/>Expedition</h3>
+          <h3 className="font-bold text-white text-lg leading-tight">Northern Peaks<br />Expedition</h3>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ function ScreenHome() {
 
 function ScreenMap() {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
@@ -72,16 +72,16 @@ function ScreenMap() {
     >
       {/* Fake Map Background */}
       <div className="absolute inset-0 bg-[#0c0c0c]">
-         <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
-         {/* Map Path Line */}
-         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 200" preserveAspectRatio="none">
-           <path d="M20,180 Q40,140 30,100 T70,40" fill="none" stroke="white" strokeWidth="2" strokeDasharray="4 4" className="animate-pulse" />
-           <circle cx="20" cy="180" r="3" fill="white" />
-           <circle cx="70" cy="40" r="4" fill="#fff" className="animate-ping" />
-           <circle cx="70" cy="40" r="2" fill="white" />
-         </svg>
+        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+        {/* Map Path Line */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 200" preserveAspectRatio="none">
+          <path d="M20,180 Q40,140 30,100 T70,40" fill="none" stroke="white" strokeWidth="2" strokeDasharray="4 4" className="animate-pulse" />
+          <circle cx="20" cy="180" r="3" fill="white" />
+          <circle cx="70" cy="40" r="4" fill="#fff" className="animate-ping" />
+          <circle cx="70" cy="40" r="2" fill="white" />
+        </svg>
       </div>
-      
+
       <div className="relative z-10 px-5 pt-2 flex-1 flex flex-col justify-between pb-4">
         <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-3 flex items-center gap-3">
           <div className="bg-white/10 p-2 rounded-lg">
@@ -92,24 +92,24 @@ function ScreenMap() {
             <p className="text-sm font-bold">Basecamp Alpha</p>
           </div>
           <div className="ml-auto text-right">
-             <p className="text-lg font-display font-bold text-white">2.4<span className="text-[10px] text-white/50 ml-1">km</span></p>
+            <p className="text-lg font-display font-bold text-white">2.4<span className="text-[10px] text-white/50 ml-1">km</span></p>
           </div>
         </div>
 
         <div className="bg-black/80 backdrop-blur-xl border border-white/20 rounded-2xl p-4">
-           <div className="flex justify-between items-center mb-3">
-             <h4 className="text-xs font-bold text-white/80">Convoy Status</h4>
-             <span className="text-[9px] bg-white/10 text-white px-2 py-0.5 rounded-full">All Sync</span>
-           </div>
-           <div className="space-y-2">
-             {['Lead Vehicle', 'Support Rover', 'Scout Drone'].map((v, i) => (
-               <div key={i} className="flex items-center gap-2 text-xs">
-                 <div className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-white animate-pulse shadow-[0_0_8px_#ffffff]' : 'bg-white/40'}`} />
-                 <span className="text-white/80">{v}</span>
-                 <span className="ml-auto text-white/40 font-mono text-[10px]">OK</span>
-               </div>
-             ))}
-           </div>
+          <div className="flex justify-between items-center mb-3">
+            <h4 className="text-xs font-bold text-white/80">Convoy Status</h4>
+            <span className="text-[9px] bg-white/10 text-white px-2 py-0.5 rounded-full">All Sync</span>
+          </div>
+          <div className="space-y-2">
+            {['Lead Vehicle', 'Support Rover', 'Scout Drone'].map((v, i) => (
+              <div key={i} className="flex items-center gap-2 text-xs">
+                <div className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-white animate-pulse shadow-[0_0_8px_#ffffff]' : 'bg-white/40'}`} />
+                <span className="text-white/80">{v}</span>
+                <span className="ml-auto text-white/40 font-mono text-[10px]">OK</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -118,7 +118,7 @@ function ScreenMap() {
 
 function ScreenGroup() {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
@@ -126,12 +126,12 @@ function ScreenGroup() {
       className="w-full h-full flex flex-col px-5"
     >
       <h2 className="text-lg font-bold font-display text-white mt-2 mb-4">Fleet Comms</h2>
-      
+
       <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-hide">
-        {[1,2,3,4].map((i) => (
+        {[1, 2, 3, 4].map((i) => (
           <div key={i} className="min-w-[60px] flex flex-col items-center gap-2">
-            <div className={`w-14 h-14 rounded-full p-0.5 ${i===1 ? 'bg-gradient-to-tr from-white to-neutral-400' : 'bg-white/10'}`}>
-              <img src={`https://i.pravatar.cc/150?img=${i+10}`} alt="User" className="w-full h-full rounded-full object-cover border-2 border-black" />
+            <div className={`w-14 h-14 rounded-full p-0.5 ${i === 1 ? 'bg-gradient-to-tr from-white to-neutral-400' : 'bg-white/10'}`}>
+              <img src={`https://i.pravatar.cc/150?img=${i + 10}`} alt="User" className="w-full h-full rounded-full object-cover border-2 border-black" />
             </div>
             <span className="text-[9px] text-white/60">User {i}</span>
           </div>
@@ -160,7 +160,7 @@ function ScreenGroup() {
 
 function ScreenStats() {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
@@ -168,7 +168,7 @@ function ScreenStats() {
       className="w-full h-full flex flex-col px-5"
     >
       <h2 className="text-lg font-bold font-display text-white mt-2 mb-4">Trip Analytics</h2>
-      
+
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div className="bg-gradient-to-br from-white/10 to-transparent p-3 rounded-xl border border-white/15">
           <p className="text-[10px] text-white/70">Total Distance</p>
@@ -181,29 +181,29 @@ function ScreenStats() {
       </div>
 
       <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex-1 mb-2">
-         <div className="flex justify-between items-end h-24 gap-2 mb-3">
-            {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
-              <div key={i} className="flex-1 bg-white/10 rounded-t-sm relative group">
-                <motion.div 
-                  initial={{ height: 0 }}
-                  animate={{ height: `${h}%` }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`absolute bottom-0 w-full rounded-t-sm ${i === 3 ? 'bg-white' : 'bg-white/30 group-hover:bg-white/50'} transition-colors`}
-                />
-              </div>
-            ))}
-         </div>
-         <div className="flex justify-between text-[9px] text-white/40 font-mono">
-           <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-         </div>
-
-         <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-            <div>
-              <p className="text-[10px] text-white/50">Efficiency Score</p>
-              <p className="text-sm font-bold text-white">94.2%</p>
+        <div className="flex justify-between items-end h-24 gap-2 mb-3">
+          {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
+            <div key={i} className="flex-1 bg-white/10 rounded-t-sm relative group">
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: `${h}%` }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`absolute bottom-0 w-full rounded-t-sm ${i === 3 ? 'bg-white' : 'bg-white/30 group-hover:bg-white/50'} transition-colors`}
+              />
             </div>
-            <Activity className="w-5 h-5 text-white" />
-         </div>
+          ))}
+        </div>
+        <div className="flex justify-between text-[9px] text-white/40 font-mono">
+          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+        </div>
+
+        <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
+          <div>
+            <p className="text-[10px] text-white/50">Efficiency Score</p>
+            <p className="text-sm font-bold text-white">94.2%</p>
+          </div>
+          <Activity className="w-5 h-5 text-white" />
+        </div>
       </div>
     </motion.div>
   );
@@ -211,10 +211,10 @@ function ScreenStats() {
 
 // Load all screen textures safely — no Suspense throw, no crash on error
 const SCREEN_IMAGES = [
-  '/media__1783486356611.png',
-  '/mockup_create.png',
-  '/mockup_comms.png',
-  '/mockup_telemetry.png'
+  '/media__1785208211546.jpg',
+  '/media__1785208228383.jpg',
+  '/media__1785208232164.jpg',
+  '/media__1785208232173.jpg'
 ];
 
 // Preload to ensure they are available immediately
@@ -232,8 +232,7 @@ function PhoneScreenMaterial({ activeIndex }) {
     tex.magFilter = THREE.LinearFilter;
   }
 
-  // alphaTest prevents the transparent corners of the mockup images from rendering as solid white blocks
-  return <meshBasicMaterial map={tex} color="#ffffff" toneMapped={false} alphaTest={0.5} />;
+  return <meshBasicMaterial map={tex} color="#ffffff" toneMapped={false} />;
 }
 
 function PhoneModel({ thresholds, scrollStateRef }) {
@@ -243,10 +242,11 @@ function PhoneModel({ thresholds, scrollStateRef }) {
 
   // Rounded screen geometry matching the image aspect ratio exactly
   const screenGeo = useMemo(() => {
-    // 458x1024 aspect ratio is 0.447
-    const W = 3.04;
+    // New mockup images are 460x1024, so aspect ratio is 460/1024 = 0.44921875
+    // Maintain height of 6.8, so width = 6.8 * 0.44921875 = 3.0546875
+    const W = 3.0546875;
     const H = 6.8;
-    const r = 0.30; // corner radius matching bezel
+    const r = 0.15; // smaller corner radius to prevent cutting UI edges
     const w = W / 2;
     const h = H / 2;
 
@@ -262,11 +262,11 @@ function PhoneModel({ thresholds, scrollStateRef }) {
 
     const geo = new THREE.ShapeGeometry(shape, 16);
 
-    // Remap UVs so texture fills the shape perfectly
+    // Remap UVs so texture fills the shape perfectly without any border stretching/cropping
     const pos = geo.attributes.position;
     const uvArr = new Float32Array(pos.count * 2);
     for (let i = 0; i < pos.count; i++) {
-      uvArr[i * 2]     = (pos.getX(i) + w) / W;
+      uvArr[i * 2] = (pos.getX(i) + w) / W;
       uvArr[i * 2 + 1] = (pos.getY(i) + h) / H;
     }
     geo.setAttribute('uv', new THREE.BufferAttribute(uvArr, 2));
@@ -278,16 +278,16 @@ function PhoneModel({ thresholds, scrollStateRef }) {
 
     // Calculate active screen index - 5 screens spread across 4 sections
     const newIdx = progress < thresholds.features ? 0
-                 : progress < thresholds.offerings ? 1
-                 : progress < thresholds.dashboard ? 2
-                 : 3;
+      : progress < thresholds.offerings ? 1
+        : progress < thresholds.dashboard ? 2
+          : 3;
     if (newIdx !== activeIndex) {
       setActiveIndex(newIdx);
     }
 
     if (group.current) {
       const floatY = Math.sin(state.clock.elapsedTime * 2) * 0.1;
-      
+
       const isMobile = viewport.width < 5;
       const rX = isMobile ? 0 : viewport.width * 0.35;
       const lX = isMobile ? 0 : -viewport.width * 0.35;
@@ -310,41 +310,41 @@ function PhoneModel({ thresholds, scrollStateRef }) {
       // Waypoints mapped dynamically across all sections of the landing page
       const waypoints = [
         // Hero Section (0.00 to tHeroEnd) - phone on right
-        { t: 0.00, pos: [rX,  floatY,       -0.05, -0.15,  0.05] }, 
-        { t: tHeroEnd, pos: [rX,  floatY,       -0.05, -0.15,  0.05] }, 
+        { t: 0.00, pos: [rX, floatY, -0.05, -0.15, 0.05] },
+        { t: tHeroEnd, pos: [rX, floatY, -0.05, -0.15, 0.05] },
 
         // Hero to Features transition - phone slides left
-        { t: tFeaturesStart, pos: [lX,  floatY,        0.00,  0.15, -0.02] }, 
+        { t: tFeaturesStart, pos: [lX, floatY, 0.00, 0.15, -0.02] },
 
         // Features Section - phone on left (opposite text)
-        { t: tFeaturesEnd, pos: [lX,  floatY,        0.00,  0.15, -0.02] }, 
+        { t: tFeaturesEnd, pos: [lX, floatY, 0.00, 0.15, -0.02] },
 
         // Features to Offerings transition - phone slides right
-        { t: tOfferingsStart, pos: [rX,  floatY,       -0.05, -0.15,  0.05] }, 
+        { t: tOfferingsStart, pos: [rX, floatY, -0.05, -0.15, 0.05] },
 
         // Offerings Section - phone on right (opposite text)
-        { t: tOfferingsEnd, pos: [rX,  floatY,       -0.05, -0.15,  0.05] }, 
+        { t: tOfferingsEnd, pos: [rX, floatY, -0.05, -0.15, 0.05] },
 
         // Offerings to Dashboard transition - phone slides left
-        { t: tDashboardStart, pos: [lX,  floatY,        0.00,  0.15, -0.02] }, 
+        { t: tDashboardStart, pos: [lX, floatY, 0.00, 0.15, -0.02] },
 
         // Dashboard Section - phone on left (opposite text)
-        { t: tDashboardEnd, pos: [lX,  floatY,        0.00,  0.15, -0.02] }, 
+        { t: tDashboardEnd, pos: [lX, floatY, 0.00, 0.15, -0.02] },
 
         // Dashboard to WhoWeAre transition - phone exits downwards
-        { t: tWhoWeAreStart, pos: [lX,  floatY - 15,   0.00,  0.15, -0.02] }, 
+        { t: tWhoWeAreStart, pos: [lX, floatY - 15, 0.00, 0.15, -0.02] },
 
         // Rest of the page - phone remains exited
-        { t: 1.00, pos: [lX,  floatY - 15,   0.00,  0.15, -0.02] }, 
+        { t: 1.00, pos: [lX, floatY - 15, 0.00, 0.15, -0.02] },
       ];
 
       let wp1 = waypoints[0];
       let wp2 = waypoints[waypoints.length - 1];
-      
+
       for (let i = 0; i < waypoints.length - 1; i++) {
-        if (progress >= waypoints[i].t && progress <= waypoints[i+1].t) {
+        if (progress >= waypoints[i].t && progress <= waypoints[i + 1].t) {
           wp1 = waypoints[i];
-          wp2 = waypoints[i+1];
+          wp2 = waypoints[i + 1];
           break;
         }
       }
@@ -362,7 +362,7 @@ function PhoneModel({ thresholds, scrollStateRef }) {
       // Damp position and rotation updates
       group.current.position.x = THREE.MathUtils.damp(group.current.position.x, targetX, 4, delta);
       group.current.position.y = THREE.MathUtils.damp(group.current.position.y, targetY, 4, delta);
-      
+
       group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, targetRotX, 4, delta);
       group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, targetRotY, 4, delta);
       group.current.rotation.z = THREE.MathUtils.damp(group.current.rotation.z, targetRotZ, 4, delta);
@@ -384,15 +384,15 @@ function PhoneModel({ thresholds, scrollStateRef }) {
   return (
     <group ref={group}>
       {/* Outer metallic frame */}
-      <RoundedBox args={[3.2, 6.96, 0.4]} radius={0.4} smoothness={12}>
+      <RoundedBox args={[3.2, 6.96, 0.4]} radius={0.25} smoothness={12}>
         <meshStandardMaterial color="#1f1f1f" metalness={0.9} roughness={0.1} />
       </RoundedBox>
       {/* Inner black bezel */}
-      <RoundedBox args={[3.1, 6.86, 0.41]} radius={0.35} smoothness={12}>
+      <RoundedBox args={[3.1, 6.86, 0.41]} radius={0.20} smoothness={12}>
         <meshStandardMaterial color="#000000" metalness={0.5} roughness={0.5} />
       </RoundedBox>
       {/* Screen sits in front of the inner bezel (bezel front face is at z=0.205) */}
-      <mesh position={[0, 0, 0.22]} geometry={screenGeo}>
+      <mesh position={[0, 0, 0.206]} geometry={screenGeo}>
         <Suspense fallback={<meshBasicMaterial color="#000000" />}>
           <PhoneScreenMaterial activeIndex={activeIndex} />
         </Suspense>
@@ -462,16 +462,16 @@ function Aurora({ scrollStateRef }) {
   return (
     <mesh position={[0, 30, -60]}>
       {/* A very long, wide curved plane in the sky */}
-      <cylinderGeometry args={[80, 80, 30, 64, 1, true, -Math.PI/2, Math.PI]} />
-      <shaderMaterial 
-        ref={materialRef} 
-        uniforms={AuroraMaterial.uniforms} 
-        vertexShader={AuroraMaterial.vertexShader} 
-        fragmentShader={AuroraMaterial.fragmentShader} 
-        transparent={true} 
-        blending={THREE.AdditiveBlending} 
-        depthWrite={false} 
-        side={THREE.DoubleSide} 
+      <cylinderGeometry args={[80, 80, 30, 64, 1, true, -Math.PI / 2, Math.PI]} />
+      <shaderMaterial
+        ref={materialRef}
+        uniforms={AuroraMaterial.uniforms}
+        vertexShader={AuroraMaterial.vertexShader}
+        fragmentShader={AuroraMaterial.fragmentShader}
+        transparent={true}
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+        side={THREE.DoubleSide}
       />
     </mesh>
   );
@@ -484,7 +484,7 @@ function MilkyWay({ scrollStateRef }) {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const color = new THREE.Color();
-    
+
     for (let i = 0; i < count; i++) {
       // Spiral Galaxy Math
       const r = Math.pow(Math.random(), 0.5) * 80;
@@ -533,7 +533,7 @@ function MilkyWay({ scrollStateRef }) {
 function ShootingStar({ scrollStateRef, resetKey }) {
   const ref = useRef();
   const [reset, setReset] = useState(0);
-  
+
   const initialState = useMemo(() => {
     const x = (Math.random() - 0.5) * 100;
     const y = 20 + Math.random() * 30;
@@ -628,7 +628,7 @@ function MovingRoad({ scrollStateRef }) {
   useFrame((state, delta) => {
     const currentScrollY = window.scrollY;
     const velocity = Math.abs(currentScrollY - scrollY.current);
-    
+
     scrollVelocity.current = THREE.MathUtils.lerp(scrollVelocity.current, velocity, 0.1);
     scrollY.current = currentScrollY;
 
@@ -657,14 +657,14 @@ function MovingRoad({ scrollStateRef }) {
   return (
     <group position={[0, -3.5, 0]}>
       <gridHelper ref={gridRef} args={[100, 100, '#555555', '#222222']} position={[0, 0, 0]}>
-         <material ref={gridMatRef} attach="material" transparent opacity={0.25} depthWrite={false} />
+        <material ref={gridMatRef} attach="material" transparent opacity={0.25} depthWrite={false} />
       </gridHelper>
-      
+
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]}>
         <planeGeometry args={[100, 100]} />
         <meshBasicMaterial ref={groundMatRef} color="#0A0A0A" />
       </mesh>
-      
+
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, -30]}>
         <planeGeometry args={[100, 60]} />
         <meshBasicMaterial ref={fogMatRef} color="#0A0A0A" transparent opacity={0.8} />
@@ -686,7 +686,7 @@ function Mountains({ scrollStateRef }) {
 
   useFrame(() => {
     const darkness = scrollStateRef.current.darkness;
-    
+
     if (m1MatRef1.current) m1MatRef1.current.color.copy(lightColor1).lerp(darkColor1, darkness);
     if (m1MatRef2.current) m1MatRef2.current.color.copy(lightColor1).lerp(darkColor2, darkness);
     if (m1MatRef3.current) m1MatRef3.current.color.copy(lightColor1).lerp(darkColor3, darkness);
@@ -717,7 +717,7 @@ function Mountains({ scrollStateRef }) {
 
 function DynamicStars({ scrollStateRef }) {
   const ref = useRef();
-  
+
   useFrame(() => {
     if (ref.current && ref.current.material) {
       ref.current.material.opacity = scrollStateRef.current.darkness;
@@ -742,7 +742,7 @@ function ScrollHandler({ thresholds, containerRef, scrollStateRef }) {
     // Update container background color directly (no React re-render!)
     if (containerRef.current) {
       containerRef.current.style.backgroundColor = 'rgb(10, 10, 10)';
-      
+
       // Update fog color directly
       if (scene.fog) {
         scene.fog.color.setRGB(10 / 255, 10 / 255, 10 / 255);
@@ -790,10 +790,10 @@ export default function Scene3D() {
     };
 
     const timer = setTimeout(handleResize, 500);
-    
+
     window.addEventListener('load', handleResize);
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       clearTimeout(timer);
       window.removeEventListener('load', handleResize);
@@ -806,17 +806,17 @@ export default function Scene3D() {
       <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
         {/* Deep immersive fog */}
         <fog attach="fog" args={['#0A0A0A', 5, 40]} />
-        
+
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 10, 5]} intensity={1.5} color="#ffffff" />
         <Environment preset="city" />
-        
+
         <DynamicStars scrollStateRef={scrollStateRef} />
         <MilkyWay scrollStateRef={scrollStateRef} />
         <Aurora scrollStateRef={scrollStateRef} />
         <ShootingStars scrollStateRef={scrollStateRef} />
         <VideoBackground scrollStateRef={scrollStateRef} />
-        
+
         <MovingRoad scrollStateRef={scrollStateRef} />
         <Mountains scrollStateRef={scrollStateRef} />
 
@@ -824,7 +824,7 @@ export default function Scene3D() {
           <PhoneModel thresholds={thresholds} scrollStateRef={scrollStateRef} />
         </Suspense>
         <ScrollHandler thresholds={thresholds} containerRef={containerRef} scrollStateRef={scrollStateRef} />
-        
+
         <ContactShadows position={[0, -3.4, 0]} opacity={0.8} scale={20} blur={2.5} far={10} color="#000000" />
       </Canvas>
     </div>
