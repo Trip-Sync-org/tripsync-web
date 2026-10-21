@@ -141,7 +141,7 @@ export default function Terms() {
               </div>
               <div>
                 <p className="text-white/40 uppercase tracking-widest text-[10px]">Corporate Entity</p>
-                <p className="font-semibold text-white truncate">TripSync Internet Pvt Ltd</p>
+                <p className="font-semibold text-white truncate">TripSync</p>
               </div>
             </div>
 

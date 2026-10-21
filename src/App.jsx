@@ -54,8 +54,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tech" element={<Tech />} />
-          <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-and-condition" element={<Terms />} />
           <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Terms />} />
         </Routes>
       </main>

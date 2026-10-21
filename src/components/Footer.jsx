@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-left md:text-center">
             <button onClick={() => handleNavClick('dashboard')} className="hover:text-white transition-colors text-left uppercase">Pricing</button>
-            <Link to="/terms" className="hover:text-white transition-colors text-left uppercase text-white/70">Terms & Conditions</Link>
+            <Link to="/terms-and-condition" className="hover:text-white transition-colors text-left uppercase">Terms & Conditions</Link>
           </div>
         </div>
 
@@ -79,7 +79,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 w-full">
           
           <div className="w-full md:w-auto flex flex-wrap justify-between md:flex-col gap-2 text-xs font-ui text-gray-600 order-2 md:order-1 px-4 md:px-0 mt-4 md:mt-0">
-            <span>© TripSync 2026 | <Link to="/terms" className="hover:text-white transition-colors">Terms</Link> | <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></span>
+            <span>© TripSync 2026 | <Link to="/terms-and-condition" className="hover:text-white transition-colors">Terms</Link> | <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></span>
             <span className="md:hidden">Designed by Madlabs.</span>
           </div>
           
