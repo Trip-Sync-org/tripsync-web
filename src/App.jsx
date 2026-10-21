@@ -5,6 +5,7 @@ import Scene3D from './components/Scene3D';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Tech from './pages/Tech';
+import Terms from './pages/Terms';
 
 function App() {
   const location = useLocation();
@@ -53,6 +54,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tech" element={<Tech />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/privacy" element={<Terms />} />
         </Routes>
       </main>
     </div>

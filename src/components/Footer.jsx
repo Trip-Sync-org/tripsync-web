@@ -1,6 +1,23 @@
 import { ArrowUpRight, Linkedin, Instagram, Twitter, Mail } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (id) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="relative w-full bg-transparent border-t border-white/5 pt-16 md:pt-32 pb-6 md:pb-10 px-8 md:px-20 font-ui overflow-hidden">
       
@@ -42,26 +59,27 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Navigation */}
-        <div className="flex flex-row justify-between items-center mb-12 md:mb-32 text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500 w-full">
+        {/* Navigation: About, Feature, FAQ, Project, Pricing Container along with Terms & Conditions */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row justify-between items-start md:items-center mb-12 md:mb-32 text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500 w-full gap-y-6 gap-x-4">
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-left md:text-center">
-            <a href="#" className="hover:text-white transition-colors">About</a>
-            <a href="#" className="hover:text-white transition-colors">Features</a>
+            <button onClick={() => handleNavClick('whoweare')} className="hover:text-white transition-colors text-left uppercase">About</button>
+            <button onClick={() => handleNavClick('offerings')} className="hover:text-white transition-colors text-left uppercase">Features</button>
           </div>
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-center">
-            <a href="#" className="hover:text-white transition-colors">FAQs</a>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-left md:text-center">
+            <button onClick={() => handleNavClick('features')} className="hover:text-white transition-colors text-left uppercase">FAQs</button>
+            <Link to="/tech" className="hover:text-white transition-colors text-left uppercase">Projects</Link>
           </div>
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-right md:text-center">
-            <a href="#" className="hover:text-white transition-colors">Projects</a>
-            <a href="#" className="hover:text-white transition-colors">Pricing</a>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-left md:text-center">
+            <button onClick={() => handleNavClick('dashboard')} className="hover:text-white transition-colors text-left uppercase">Pricing</button>
+            <Link to="/terms" className="hover:text-white transition-colors text-left uppercase text-white/70">Terms & Conditions</Link>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 w-full">
           
-          <div className="w-full md:w-auto flex justify-between md:block text-xs font-ui text-gray-600 order-2 md:order-1 px-4 md:px-0 mt-4 md:mt-0">
-            <span>© TripSync 2026 | <a href="#" className="hover:text-white transition-colors">License</a></span>
+          <div className="w-full md:w-auto flex flex-wrap justify-between md:flex-col gap-2 text-xs font-ui text-gray-600 order-2 md:order-1 px-4 md:px-0 mt-4 md:mt-0">
+            <span>© TripSync 2026 | <Link to="/terms" className="hover:text-white transition-colors">Terms</Link> | <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></span>
             <span className="md:hidden">Designed by Madlabs.</span>
           </div>
           
