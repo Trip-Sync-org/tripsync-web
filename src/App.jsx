@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Scene3D from './components/Scene3D';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -58,6 +58,7 @@ function App() {
           <Route path="/terms-and-conditions" element={<Terms />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Terms />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     </div>
